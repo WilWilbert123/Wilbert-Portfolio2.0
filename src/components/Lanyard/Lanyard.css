@@ -1,0 +1,35 @@
+.lanyard-wrapper {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+  cursor: grab;
+  overflow: visible !important;
+}
+
+.lanyard-wrapper:active {
+  cursor: grabbing;
+}
+
+.lanyard-wrapper canvas {
+  cursor: grab !important;
+  overflow: visible !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.lanyard-wrapper canvas:active {
+  cursor: grabbing !important;
+}
+
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    transform: scale(0.9);
+  }
+}
