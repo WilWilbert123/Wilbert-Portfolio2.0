@@ -1,0 +1,87 @@
+.logoloop {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 80px;
+}
+
+.logoloop--horizontal {
+  height: var(--logoloop-logoHeight, 55px);
+}
+
+.logoloop__track {
+  display: flex;
+  will-change: transform;
+  gap: var(--logoloop-gap, 70px);
+  height: 100%;
+  align-items: center;
+}
+
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  gap: var(--logoloop-gap, 70px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 100%;
+}
+
+.logoloop__item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.logoloop--scale-hover .logoloop__item:hover {
+  transform: scale(1.2);
+}
+
+.logoloop__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--logoloop-logoHeight, 55px);
+  line-height: 1;
+}
+
+.logoloop__link {
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.logoloop__link:hover {
+  opacity: 0.8;
+}
+
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.logoloop--fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--logoloop-fadeColor, #05050A), transparent);
+}
+
+.logoloop--fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--logoloop-fadeColor, #05050A), transparent);
+}
+
+@media (max-width: 768px) {
+  .logoloop--fade::before,
+  .logoloop--fade::after {
+    width: 50px;
+  }
+}
