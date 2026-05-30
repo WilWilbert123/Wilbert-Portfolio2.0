@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -34,12 +34,12 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission - Replace with actual API call
+    // Simulate form submission
     setTimeout(() => {
       setFormStatus({
         submitted: true,
         success: true,
-        message: 'Thank you! I\'ll get back to you soon.'
+        message: "Thank you! I'll get back to you soon."
       });
       setIsSubmitting(false);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -57,7 +57,7 @@ const Contact = () => {
       title: 'Email',
       value: 'john.wilbertn@example.com',
       link: 'mailto:john.wilbertn@example.com',
-      color: '#61DAFB'
+      color: '#ffffff'
     },
     {
       icon: 'fab fa-github',
@@ -71,28 +71,28 @@ const Contact = () => {
       title: 'LinkedIn',
       value: 'linkedin.com/in/johnwilbertn',
       link: 'https://linkedin.com/in/johnwilbertn',
-      color: '#0077B5'
+      color: '#ffffff'
     },
     {
       icon: 'fab fa-twitter',
       title: 'Twitter',
       value: '@johnwilbertn',
       link: 'https://twitter.com/johnwilbertn',
-      color: '#1DA1F2'
+      color: '#ffffff'
     },
     {
       icon: 'fas fa-phone',
       title: 'Phone',
       value: '+1 (555) 123-4567',
       link: 'tel:+15551234567',
-      color: '#4ecdc4'
+      color: '#ffffff'
     },
     {
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
       value: 'San Francisco, CA',
       link: null,
-      color: '#ff6b6b'
+      color: '#ffffff'
     }
   ];
 
@@ -151,8 +151,8 @@ const Contact = () => {
             <motion.div variants={itemVariants} className="info-grid">
               {contactInfo.map((info, index) => (
                 <div key={index} className="info-card">
-                  <div className="info-icon" style={{ background: `${info.color}20`, color: info.color }}>
-                    <i className={info.icon}></i>
+                  <div className="info-icon">
+                    <i className={info.icon} style={{ color: info.color }}></i>
                   </div>
                   <div className="info-details">
                     <h4>{info.title}</h4>
@@ -310,21 +310,21 @@ const Contact = () => {
 
         .section-badge {
           display: inline-block;
-          background: linear-gradient(135deg, rgba(108, 108, 255, 0.1), rgba(156, 77, 255, 0.1));
+          background: rgba(255, 255, 255, 0.05);
           padding: 8px 20px;
           border-radius: 50px;
           font-size: 0.85rem;
           font-weight: 600;
-          color: #8a8aff;
+          color: #ffffff;
           margin-bottom: 20px;
-          border: 1px solid rgba(108, 108, 255, 0.3);
+          border: 1px solid rgba(255, 255, 255, 0.15);
           letter-spacing: 1px;
         }
 
         .section-title {
           font-size: clamp(2rem, 5vw, 3rem);
           font-weight: 700;
-          background: linear-gradient(135deg, #fff, #a0a0ff);
+          background: linear-gradient(135deg, #fff, #888888);
           background-clip: text;
           -webkit-background-clip: text;
           color: transparent;
@@ -333,7 +333,7 @@ const Contact = () => {
 
         .section-subtitle {
           font-size: 1.1rem;
-          color: #b9b9e6;
+          color: #adadad;
           max-width: 600px;
           margin: 0 auto;
           line-height: 1.6;
@@ -358,7 +358,7 @@ const Contact = () => {
         }
 
         .info-text p {
-          color: #b9b9e6;
+          color: #adadad;
           line-height: 1.6;
         }
 
@@ -376,13 +376,13 @@ const Contact = () => {
           background: rgba(15, 15, 28, 0.6);
           backdrop-filter: blur(12px);
           border-radius: 12px;
-          border: 1px solid rgba(108, 108, 255, 0.15);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           transition: all 0.3s ease;
         }
 
         .info-card:hover {
           transform: translateY(-3px);
-          border-color: rgba(108, 108, 255, 0.3);
+          border-color: rgba(255, 255, 255, 0.25);
         }
 
         .info-icon {
@@ -392,25 +392,27 @@ const Contact = () => {
           align-items: center;
           justify-content: center;
           border-radius: 10px;
-          font-size: 20px;
+          font-size: 18px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .info-details h4 {
           font-size: 0.8rem;
-          color: #8a8aff;
+          color: #888888;
           margin-bottom: 5px;
         }
 
         .info-details a,
         .info-details span {
           font-size: 0.85rem;
-          color: #b9b9e6;
+          color: #adadad;
           text-decoration: none;
           transition: color 0.2s;
         }
 
         .info-details a:hover {
-          color: #6c6cff;
+          color: #ffffff;
         }
 
         .social-links h4 {
@@ -431,15 +433,16 @@ const Contact = () => {
           justify-content: center;
           background: rgba(15, 15, 28, 0.6);
           border-radius: 50%;
-          color: #b9b9e6;
-          font-size: 20px;
+          color: #adadad;
+          font-size: 18px;
           transition: all 0.3s ease;
-          border: 1px solid rgba(108, 108, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .social-icon:hover {
-          background: #6c6cff;
-          color: white;
+          background: #ffffff;
+          color: #05050A;
+          border-color: transparent;
           transform: translateY(-3px);
         }
 
@@ -448,7 +451,7 @@ const Contact = () => {
           backdrop-filter: blur(12px);
           border-radius: 24px;
           padding: 40px;
-          border: 1px solid rgba(108, 108, 255, 0.2);
+          border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .contact-form {
@@ -473,14 +476,14 @@ const Contact = () => {
         }
 
         .form-group label i {
-          color: #6c6cff;
+          color: #adadad;
         }
 
         .form-group input,
         .form-group textarea {
           padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(108, 108, 255, 0.2);
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 10px;
           color: #fff;
           font-size: 0.95rem;
@@ -490,21 +493,22 @@ const Contact = () => {
         .form-group input:focus,
         .form-group textarea:focus {
           outline: none;
-          border-color: #6c6cff;
-          background: rgba(108, 108, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.4);
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-          color: rgba(255, 255, 255, 0.3);
+          color: rgba(255, 255, 255, 0.25);
         }
 
         .submit-btn {
           padding: 14px 28px;
-          background: linear-gradient(95deg, #6c6cff, #9c4dff);
+          background: #ffffff;
           border: none;
           border-radius: 50px;
-          color: white;
+          color: #05050A;
+          规律: transparent;
           font-weight: 600;
           font-size: 1rem;
           cursor: pointer;
@@ -517,11 +521,11 @@ const Contact = () => {
 
         .submit-btn:hover:not(:disabled) {
           transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(108, 108, 255, 0.3);
+          box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
         }
 
         .submit-btn:disabled {
-          opacity: 0.7;
+          opacity: 0.5;
           cursor: not-allowed;
         }
 
@@ -535,14 +539,14 @@ const Contact = () => {
         }
 
         .form-message.success {
-          background: rgba(76, 175, 80, 0.1);
-          border: 1px solid rgba(76, 175, 80, 0.3);
-          color: #4caf50;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #ffffff;
         }
 
         .form-message.error {
-          background: rgba(244, 67, 54, 0.1);
-          border: 1px solid rgba(244, 67, 54, 0.3);
+          background: rgba(244, 67, 54, 0.08);
+          border: 1px solid rgba(244, 67, 54, 0.2);
           color: #f44336;
         }
 
