@@ -1,3 +1,4 @@
+// src/App.js
 import { motion } from 'framer-motion';
 import LightRays from './components/LightRays/LightRays';
 import Lanyard from './components/Lanyard/Lanyard';
@@ -5,6 +6,8 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import LogoLoop from './components/LogoLoop/LogoLoop';
 import SplashCursor from './components/SplashCursor/SplashCursor';
+import Skills from './components/Skills/Skills';
+import GooeyNav from './components/GooeyNav/GooeyNav';
 import './App.css';
 
 function App() {
@@ -25,11 +28,22 @@ function App() {
     { node: <i className="fab fa-angular" style={{ fontSize: '2rem', color: '#DD0031' }}></i>, title: "Angular", href: "https://angular.io" }
   ];
 
+  // Navigation items
+  const navItems = [
+    { label: 'Home', href: '#home', icon: 'fas fa-home' },
+    { label: 'Skills', href: '#skills', icon: 'fas fa-code' },
+    { label: 'Projects', href: '#projects', icon: 'fas fa-project-diagram' },
+    { label: 'Contact', href: '#contact', icon: 'fas fa-envelope' }
+  ];
+
   return (
     <div className="app">
+      {/* Gooey Navigation */}
+      <GooeyNav items={navItems} initialActiveIndex={0} />
+
       {/* SplashCursor Effect - Beautiful particle trail */}
       <SplashCursor
-        COLOR="#6c6cff"
+        COLOR="#ffffff"
         SPLAT_RADIUS={0.3}
         SPLAT_FORCE={6000}
         TRANSPARENT={true}
@@ -39,7 +53,7 @@ function App() {
       {/* LightRays Background */}
       <LightRays
         raysOrigin="top-center"
-        raysColor="#6c6cff"
+        raysColor="#ffffff"
         raysSpeed={0.5}
         lightSpread={1.2}
         rayLength={2}
@@ -53,9 +67,9 @@ function App() {
       />
 
       {/* Hero Section */}
-      <section className="hero-section">
+      <section id="home" className="hero-section">
         <div className="hero-container">
-          <motion.div 
+          <motion.div
             className="hero-content-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -67,8 +81,7 @@ function App() {
             <h1 className="glow-text">John Wilbertn Gamis</h1>
             <div className="hero-title">Building digital experiences that matter</div>
             <p className="hero-desc">
-              I craft high-performance web applications with modern technologies,
-              blending elegant frontends with robust backends. Let's turn ideas into reality.
+              I’m a passionate Mobile Application Developer specializing in building modern, scalable, and user-friendly applications, turning ideas into high-quality digital experiences.
             </p>
             <div className="cta-buttons">
               <a href="#projects" className="btn btn-primary">
@@ -80,7 +93,7 @@ function App() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="lanyard-right"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -111,9 +124,16 @@ function App() {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <Skills />
+
+      {/* Projects Section */}
       <Projects />
+
+      {/* Contact Section */}
       <Contact />
 
+      {/* Footer */}
       <div className="footer">
         © 2025 John Wilbertn Gamis — Full Stack Developer
       </div>

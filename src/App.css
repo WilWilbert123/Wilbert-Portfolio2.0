@@ -23,16 +23,16 @@
 }
 
 .hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: center;
-  gap: 4rem;
+  justify-content: space-between;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 6%;
   min-height: 100vh;
   overflow: visible;
+  gap: 4rem;
 }
 
 /* Text Content on Left */
@@ -44,21 +44,22 @@
 
 .badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(8px);
   padding: 0.5rem 1.2rem;
   border-radius: 40px;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   margin-bottom: 1.8rem;
+  color: #ffffff;
 }
 
 .glow-text {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
-  background: linear-gradient(135deg, #FFFFFF 0%, #B0B0FF 50%, #6C6CFF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #A0A0A0 50%, #404040 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -69,7 +70,7 @@
 .hero-title {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #cbcbff;
+  color: #e0e0e0;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
 }
@@ -77,7 +78,7 @@
 .hero-desc {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #b9b9e6;
+  color: #adadad;
   margin-bottom: 2rem;
 }
 
@@ -102,33 +103,35 @@
 }
 
 .btn-primary {
-  background: linear-gradient(95deg, #6c6cff, #9c4dff);
-  color: white;
-  border: none;
-  box-shadow: 0 8px 20px rgba(108, 108, 255, 0.3);
+  background: #ffffff;
+  color: #05050A;
+  border: 1px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(108, 108, 255, 0.4);
+  background: #e6e6e6;
+  border-color: #e6e6e6;
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.15);
 }
 
 .btn-outline {
   background: transparent;
-  border: 1.5px solid rgba(108, 108, 255, 0.6);
-  color: #e0e0ff;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
 }
 
 .btn-outline:hover {
-  background: rgba(108, 108, 255, 0.15);
-  border-color: #8c8cff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
   transform: translateY(-3px);
 }
 
-/* Lanyard on Right - Interactive with NO LIMITS */
+/* Lanyard on Right */
 .lanyard-right {
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 600px;
   display: flex;
   align-items: center;
@@ -143,35 +146,29 @@
 }
 
 .lanyard-interactive {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: visible !important;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10;
 }
 
-.lanyard-interactive > div {
-  width: 100%;
-  height: 100%;
-  overflow: visible !important;
-}
-
-/* Make sure lanyard is clickable and interactive */
 .lanyard-interactive canvas {
-  cursor: grab !important;
-  overflow: visible !important;
-  position: relative !important;
   pointer-events: auto !important;
-  z-index: 101 !important;
+  cursor: grab !important;
 }
 
 .lanyard-interactive canvas:active {
   cursor: grabbing !important;
 }
 
-/* LogoLoop Section - Single Line */
+/* LogoLoop Section */
 .logoloop-section {
   padding: 40px 0;
-  background: linear-gradient(180deg, transparent, rgba(108, 108, 255, 0.05), transparent);
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02), transparent);
   position: relative;
   overflow: hidden;
 }
@@ -181,93 +178,6 @@
   max-width: 100%;
   margin: 0 auto;
   position: relative;
-}
-
-/* Projects Section */
-.projects-section {
-  padding: 5rem 6%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  background: linear-gradient(120deg, #fff, #a0a0ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.project-card {
-  background: rgba(15, 15, 28, 0.7);
-  backdrop-filter: blur(12px);
-  border-radius: 28px;
-  padding: 1.8rem;
-  border: 1px solid rgba(108, 108, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: #6c6cff;
-  box-shadow: 0 20px 30px -15px rgba(0, 0, 0, 0.5);
-}
-
-.project-icon {
-  font-size: 2.5rem;
-  color: #8a8aff;
-  margin-bottom: 1rem;
-}
-
-.project-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.project-card p {
-  color: #bcbce6;
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.tech-tag {
-  background: rgba(108, 108, 255, 0.2);
-  padding: 0.2rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #cdcdff;
-}
-
-.project-link {
-  color: #a0a0ff;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.project-link:hover {
-  color: #c4c4ff;
-  gap: 10px;
 }
 
 /* Contact Section */
@@ -282,7 +192,7 @@
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2.5rem;
-  color: #cbcbf0;
+  color: #adadad;
 }
 
 .contact-links {
@@ -293,7 +203,7 @@
 }
 
 .contact-icon {
-  background: rgba(108, 108, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -301,15 +211,15 @@
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: #e0e0ff;
+  color: #ffffff;
   transition: 0.2s;
-  border: 1px solid rgba(108, 108, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
 }
 
 .contact-icon:hover {
-  background: #6c6cff;
-  color: white;
+  background: #ffffff;
+  color: #05050A;
   transform: scale(1.05);
 }
 
@@ -317,8 +227,8 @@
   text-align: center;
   padding: 2rem;
   font-size: 0.85rem;
-  color: #888;
-  border-top: 1px solid rgba(108, 108, 255, 0.1);
+  color: #666666;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -334,23 +244,6 @@
   z-index: 9998;
 }
 
-/* Ensure lanyard is above splash cursor for interaction */
-.lanyard-interactive canvas {
-  z-index: 10000 !important;
-  position: relative !important;
-}
-
-/* Fix pointer events for lanyard */
-.lanyard-interactive {
-  pointer-events: auto !important;
-  z-index: 10000 !important;
-}
-
-.lanyard-interactive canvas {
-  pointer-events: auto !important;
-}
-
-/* SplashCursor Canvas */
 canvas[style*="position: fixed"] {
   position: fixed !important;
   top: 0 !important;
@@ -370,6 +263,8 @@ canvas[style*="position: fixed"] {
     text-align: center;
     padding: 4rem 6%;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero-content-left {
@@ -389,6 +284,7 @@ canvas[style*="position: fixed"] {
   .lanyard-right {
     height: 450px;
     order: -1;
+    width: 100%;
     overflow: visible !important;
   }
 }
@@ -422,11 +318,6 @@ canvas[style*="position: fixed"] {
   
   .lanyard-right {
     height: 350px;
-    overflow: visible !important;
-  }
-  
-  .projects-section {
-    padding: 3rem 1.5rem;
   }
   
   .contact-section {
@@ -447,15 +338,6 @@ canvas[style*="position: fixed"] {
   
   .lanyard-right {
     height: 300px;
-    overflow: visible !important;
-  }
-  
-  .projects-grid {
-    gap: 1rem;
-  }
-  
-  .project-card {
-    padding: 1.2rem;
   }
   
   .contact-links {
@@ -474,17 +356,18 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-}
-
-/* Ensure all content is properly layered */
-.content-wrapper {
-  position: relative;
-  z-index: 10;
+  background: #05050A;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Section scroll margins */
+#home, #skills, #projects, #contact {
+  scroll-margin-top: 80px;
 }
 
 /* Custom scrollbar */
@@ -496,18 +379,19 @@ html {
   background: #0a0a14;
 }
 
+/* Changed scrollbar accent to modern dark grey */
 ::-webkit-scrollbar-thumb {
-  background: #4a4a6a;
+  background: #333333;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6c6cff;
+  background: #ffffff;
 }
 
 /* Selection color */
 ::selection {
-  background: rgba(108, 108, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
 }
 
@@ -517,43 +401,6 @@ html {
 }
 
 :focus-visible {
-  outline: 2px solid #6c6cff;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
-}
-/* Ensure the parent columns don't choke the overflow */
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  /* Make sure no overflow hidden is set here */
-}
-
-.lanyard-right {
-  position: relative;
-  width: 50%; /* Keeps layout balance */
-  height: 600px; /* Adjust based on your layout */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.lanyard-interactive {
-  /* This breaks out of the layout bounds to capture full screen drags */
-  position: absolute;
-  width: 100vw;   /* Full viewport width */
-  height: 100vh;  /* Full viewport height */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centers the massive hit box */
-  pointer-events: none; /* Prevents blocking clicks on text buttons */
-  z-index: 10;
-}
-
-/* Re-enable pointer events ONLY for the canvas so you can grab it anywhere */
-.lanyard-interactive canvas {
-  pointer-events: auto !important;
 }
