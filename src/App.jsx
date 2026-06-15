@@ -101,7 +101,7 @@ function App() {
               />
             </div>
             
-            {/* TextType for hero description */}
+          
             <p className="hero-desc">
               <TextType
                 text={[
