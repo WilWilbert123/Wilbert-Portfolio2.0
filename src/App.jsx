@@ -42,7 +42,7 @@ function App() {
       {/* Gooey Navigation */}
       <GooeyNav items={navItems} initialActiveIndex={0} />
 
-      {/* SplashCursor Effect - Beautiful particle trail */}
+    
       <SplashCursor
         COLOR="#ffffff"
         SPLAT_RADIUS={0.3}
