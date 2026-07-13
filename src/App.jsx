@@ -1,40 +1,172 @@
 // src/App.jsx
-import { motion } from 'framer-motion';
-import LightRays from './components/LightRays/LightRays';
-import Lanyard from './components/Lanyard/Lanyard';
-import Projects from './components/Projects/Projects';
-import Contact from './components/Contact/Contact';
-import LogoLoop from './components/LogoLoop/LogoLoop';
-import SplashCursor from './components/SplashCursor/SplashCursor';
-import Skills from './components/Skills/Skills';
-import GooeyNav from './components/GooeyNav/GooeyNav';
-import TextType from './components/TextType/TextType';  
-import './App.css';
+import { motion } from "framer-motion";
+import LightRays from "./components/LightRays/LightRays";
+import Lanyard from "./components/Lanyard/Lanyard";
+import Projects from "./components/Projects/Projects";
+import Contact from "./components/Contact/Contact";
+import LogoLoop from "./components/LogoLoop/LogoLoop";
+import SplashCursor from "./components/SplashCursor/SplashCursor";
+import Skills from "./components/Skills/Skills";
+import GooeyNav from "./components/GooeyNav/GooeyNav";
+import TextType from "./components/TextType/TextType";
+import CardSwap, { Card } from "./components/CardSwap/CardSwap";
+
+// IMPORT YOUR LOCAL IMAGES HERE
+import echoImg from "./assets/echo.png";
+import generalImages from "./assets/images.jpeg"; // Using this for Candy Match / SAMS
+
+import "./App.css";
 
 function App() {
   const techLogos = [
-    { node: <i className="fab fa-react" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "React", href: "https://react.dev" },
-    { node: <i className="fab fa-node-js" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Node.js", href: "https://nodejs.org" },
-    { node: <i className="fab fa-js" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "JavaScript", href: "https://javascript.com" },
-    { node: <i className="fab fa-python" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Python", href: "https://python.org" },
-    { node: <i className="fab fa-java" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Java", href: "https://java.com" },
-    { node: <i className="fas fa-database" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "MongoDB", href: "https://mongodb.com" },
-    { node: <i className="fas fa-database" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "PostgreSQL", href: "https://postgresql.org" },
-    { node: <i className="fab fa-docker" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Docker", href: "https://docker.com" },
-    { node: <i className="fab fa-git-alt" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Git", href: "https://git-scm.com" },
-    { node: <i className="fab fa-aws" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "AWS", href: "https://aws.amazon.com" },
-    { node: <i className="fas fa-fire" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Firebase", href: "https://firebase.google.com" },
-    { node: <i className="fas fa-chart-line" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "GraphQL", href: "https://graphql.org" },
-    { node: <i className="fab fa-vuejs" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Vue.js", href: "https://vuejs.org" },
-    { node: <i className="fab fa-angular" style={{ fontSize: '2rem', color: '#ffffff' }}></i>, title: "Angular", href: "https://angular.io" }
+    {
+      node: (
+        <i
+          className="fab fa-react"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "React",
+      href: "https://react.dev",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-node-js"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Node.js",
+      href: "https://nodejs.org",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-js"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "JavaScript",
+      href: "https://javascript.com",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-python"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Python",
+      href: "https://python.org",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-java"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Java",
+      href: "https://java.com",
+    },
+    {
+      node: (
+        <i
+          className="fas fa-database"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "MongoDB",
+      href: "https://mongodb.com",
+    },
+    {
+      node: (
+        <i
+          className="fas fa-database"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "PostgreSQL",
+      href: "https://postgresql.org",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-docker"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Docker",
+      href: "https://docker.com",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-git-alt"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Git",
+      href: "https://git-scm.com",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-aws"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "AWS",
+      href: "https://aws.amazon.com",
+    },
+    {
+      node: (
+        <i
+          className="fas fa-fire"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Firebase",
+      href: "https://firebase.google.com",
+    },
+    {
+      node: (
+        <i
+          className="fas fa-chart-line"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "GraphQL",
+      href: "https://graphql.org",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-vuejs"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Vue.js",
+      href: "https://vuejs.org",
+    },
+    {
+      node: (
+        <i
+          className="fab fa-angular"
+          style={{ fontSize: "2rem", color: "#ffffff" }}
+        ></i>
+      ),
+      title: "Angular",
+      href: "https://angular.io",
+    },
   ];
 
   // Navigation items
   const navItems = [
-    { label: 'Home', href: '#home', icon: 'fas fa-home' },
-    { label: 'Skills', href: '#skills', icon: 'fas fa-code' },
-    { label: 'Projects', href: '#projects', icon: 'fas fa-project-diagram' },
-    { label: 'Contact', href: '#contact', icon: 'fas fa-envelope' }
+    { label: "Home", href: "#home", icon: "fas fa-home" },
+    { label: "Skills", href: "#skills", icon: "fas fa-code" },
+    { label: "Projects", href: "#projects", icon: "fas fa-project-diagram" },
+    { label: "Contact", href: "#contact", icon: "fas fa-envelope" },
   ];
 
   return (
@@ -42,7 +174,6 @@ function App() {
       {/* Gooey Navigation */}
       <GooeyNav items={navItems} initialActiveIndex={0} />
 
-    
       <SplashCursor
         COLOR="#ffffff"
         SPLAT_RADIUS={0.3}
@@ -76,10 +207,9 @@ function App() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            
             <h1 className="glow-text">John Wilbert Gamis</h1>
             <div className="hero-title1">React Native Developer</div>
-            
+
             {/* TextType for hero title */}
             <div className="hero-title">
               <TextType
@@ -87,7 +217,7 @@ function App() {
                   "Building digital experiences that matter",
                   "Creating innovative mobile solutions",
                   "Transforming ideas into reality",
-                  "Crafting pixel-perfect interfaces"
+                  "Crafting pixel-perfect interfaces",
                 ]}
                 as="div"
                 typingSpeed={50}
@@ -100,14 +230,13 @@ function App() {
                 cursorBlinkDuration={0.7}
               />
             </div>
-            
-          
+
             <p className="hero-desc">
               <TextType
                 text={[
                   "I'm a passionate Mobile Application Developer specializing in building modern, scalable, and user-friendly applications, turning ideas into high-quality digital experiences.",
                   "I craft elegant solutions for complex problems, focusing on performance and user experience in every line of code.",
-                  "With expertise in React Native and modern web technologies, I build applications that users love to interact with."
+                  "With expertise in React Native and modern web technologies, I build applications that users love to interact with.",
                 ]}
                 as="span"
                 typingSpeed={20}
@@ -121,7 +250,7 @@ function App() {
                 startOnVisible={true}
               />
             </p>
-            
+
             <div className="cta-buttons">
               <a href="#projects" className="btn btn-primary">
                 <i className="fas fa-arrow-down"></i> View Work
@@ -163,6 +292,91 @@ function App() {
         </div>
       </section>
 
+      {/* Featured Cards Section */}
+      <section className="featured-cards-section">
+        <div className="featured-cards-container">
+          {/* Left Side: Content/Text */}
+          <div className="featured-cards-left">
+            <h2 className="section-title">Featured Projects</h2>
+            <p className="section-subtitle">
+              A curated showcase of mobile ecosystems and full-stack solutions.
+              Built with an absolute focus on buttery-smooth UI/UX transitions,
+              fluid glassmorphic aesthetics, and robust API architectures.
+            </p>
+          </div>
+
+          {/* Right Side: CardSwap Component with Image Visual Panels */}
+          <div className="featured-cards-right">
+            <CardSwap
+              width={600}
+              height={500}
+              delay={4000}
+              pauseOnHover={true}
+              easing="elastic"
+            >
+              {/* Card 1: Echo Stamp with echo.png */}
+              <Card customClass="portfolio-swap-card design-echo-stamp">
+                <div className="card-visual-header">
+                  <div className="card-bg-gradient" />
+                  <img
+                    src={echoImg}
+                    alt="Echo Stamp Preview"
+                    className="card-project-img"
+                  />
+                </div>
+                <div className="card-content-footer">
+                  <h3>Echo Stamp</h3>
+                  <p>
+                    Location-based journaling and mood tracking mobile
+                    application.
+                  </p>
+                  <span className="card-tag">React Native</span>
+                </div>
+              </Card>
+
+              {/* Card 2: Candy Match with images.jpeg */}
+              <Card customClass="portfolio-swap-card design-candy-match">
+                <div className="card-visual-header">
+                  <div className="card-bg-gradient" />
+                  <img
+                    src={generalImages}
+                    alt="Candy Match Preview"
+                    className="card-project-img"
+                  />
+                </div>
+                <div className="card-content-footer">
+                  <h3>Echo Stamp Website</h3>
+                  <p>
+                    A responsive website for the Echo Stamp mobile application.
+                  </p>
+                  <span className="card-tag">Website</span>
+                </div>
+              </Card>
+
+              {/* Card 3: SAMS with images.jpeg */}
+              <Card customClass="portfolio-swap-card design-sams">
+                <div className="card-visual-header">
+                  <div className="card-bg-gradient" />
+                  <img
+                    src={generalImages}
+                    alt="SAMS Preview"
+                    className="card-project-img"
+                  />
+                </div>
+                <div className="card-content-footer">
+                  <h3>My Portfolio</h3>
+                  <p>
+                    A responsive web application showcasing my skills and
+                    projects.
+                  </p>
+                  <span className="card-tag">Full Stack</span>
+                </div>
+              </Card>
+            </CardSwap>
+          </div>
+        </div>
+      </section>
+
       {/* Skills Section */}
       <Skills />
 
@@ -174,7 +388,7 @@ function App() {
 
       {/* Footer */}
       <div className="footer">
-        © 2025 John Wilbertn Gamis — Full Stack Developer
+        © 2025 John Wilbert Gamis — Full Stack Developer
       </div>
     </div>
   );
