@@ -449,7 +449,7 @@
   padding: 6rem 6%;
   overflow: visible;
 }
-
+ 
 /* Two-column grid setup */
 .featured-cards-container {
   display: grid;
@@ -508,16 +508,75 @@
   .featured-cards-right {
     height: 350px; /* Reduce container height profile as card deck scales down */
   }
-}
-.card-project-img {
+} 
+
+/* 1. Ensure the card behaves as a flex container */
+.portfolio-swap-card {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keeps image proportions clean without stretching */
-  opacity: 0.85;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stacks header bar on top of the image */
+  background: #0d0d11;    
+  border: 1px solid rgba(255, 255, 255, 0.08); 
 }
 
+/* 2. Style the header bar */
+.card-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(13, 13, 17, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0; /* Prevents the header bar from squishing */
+  z-index: 10;
+}
+
+/* 3. The image wrapper (CRITICAL FIX HERE) */
+.card-visual-header {
+  width: 100%;
+  flex-grow: 1;        /* Forces this container to fill ONLY the remaining space */
+  position: relative;  
+  overflow: hidden;    /* Keeps the zoom effect cleanly clipped */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* 4. The image styling */
+.card-project-img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover;   
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block; 
+}
+
+/* 5. Hover effects */
 .portfolio-swap-card:hover .card-project-img {
   opacity: 1;
-  transform: scale(1.02); /* Subtle hover premium effect */
+  transform: scale(1.05); 
+}
+
+.card-bg-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+  z-index: 1;           
+}
+
+/* Crucial wrapper to make the entire card surface click-interactive */
+.card-clickable-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Removes any default link underlining */
+  color: inherit;         /* Ensures text doesn't turn standard link blue */
+  cursor: pointer;        /* Shows the click pointer cursor */
 }

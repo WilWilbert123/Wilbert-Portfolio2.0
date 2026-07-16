@@ -12,8 +12,9 @@ import TextType from "./components/TextType/TextType";
 import CardSwap, { Card } from "./components/CardSwap/CardSwap";
 
 // IMPORT YOUR LOCAL IMAGES HERE
-import echoImg from "./assets/echo.png";
-import generalImages from "./assets/images.jpeg"; // Using this for Candy Match / SAMS
+import echoImg from "./assets/echoweb.png";
+import echoImg2 from "./assets/echoapp.png";
+import generalImages from "./assets/portfolio.png";
 
 import "./App.css";
 
@@ -299,78 +300,88 @@ function App() {
           <div className="featured-cards-left">
             <h2 className="section-title">Featured Projects</h2>
             <p className="section-subtitle">
-              A curated showcase of mobile ecosystems and full-stack solutions.
-              Built with an absolute focus on buttery-smooth UI/UX transitions,
-              fluid glassmorphic aesthetics, and robust API architectures.
+              A curated showcase of cross-platform mobile ecosystems, responsive
+              web solutions, and full-stack architectures. Each project is built
+              with an absolute focus on buttery-smooth UI/UX transitions, fluid
+              glassmorphic aesthetics, and highly scalable API integrations
+              designed to deliver a seamless experience across all devices.
             </p>
           </div>
 
           {/* Right Side: CardSwap Component with Image Visual Panels */}
           <div className="featured-cards-right">
             <CardSwap
-              width={600}
-              height={500}
+              width={690}
+              height={450}
               delay={4000}
               pauseOnHover={true}
               easing="elastic"
             >
-              {/* Card 1: Echo Stamp with echo.png */}
+              {/* Card 1: Echo Stamp Website */}
               <Card customClass="portfolio-swap-card design-echo-stamp">
-                <div className="card-visual-header">
-                  <div className="card-bg-gradient" />
-                  <img
-                    src={echoImg}
-                    alt="Echo Stamp Preview"
-                    className="card-project-img"
-                  />
-                </div>
-                <div className="card-content-footer">
-                  <h3>Echo Stamp</h3>
-                  <p>
-                    Location-based journaling and mood tracking mobile
-                    application.
-                  </p>
-                  <span className="card-tag">React Native</span>
-                </div>
+                <a
+                  href="https://echo-stamp-journey-666.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-clickable-wrapper"
+                >
+                  <div className="card-header-bar">
+                    <i className="fas fa-globe header-icon"></i>
+                    <span className="header-title">ECHO STAMP WEBSITE</span>
+                  </div>
+                  <div className="card-visual-header">
+                    <div className="card-bg-gradient" />
+                    <img
+                      src={echoImg}
+                      alt="Echo Stamp Preview"
+                      className="card-project-img"
+                    />
+                  </div>
+                </a>
               </Card>
 
-              {/* Card 2: Candy Match with images.jpeg */}
+              {/* Card 2: Echo Stamp App (Google Play Link) */}
               <Card customClass="portfolio-swap-card design-candy-match">
-                <div className="card-visual-header">
-                  <div className="card-bg-gradient" />
-                  <img
-                    src={generalImages}
-                    alt="Candy Match Preview"
-                    className="card-project-img"
-                  />
-                </div>
-                <div className="card-content-footer">
-                  <h3>Echo Stamp Website</h3>
-                  <p>
-                    A responsive website for the Echo Stamp mobile application.
-                  </p>
-                  <span className="card-tag">Website</span>
-                </div>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.wilbert03.EchoStamp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-clickable-wrapper"
+                >
+                  <div className="card-header-bar">
+                    <i className="fas fa-mobile-alt header-icon"></i>
+                    <span className="header-title">ECHO STAMP APP</span>
+                  </div>
+                  <div className="card-visual-header">
+                    <div className="card-bg-gradient" />
+                    <img
+                      src={echoImg2}
+                      alt="Echo App Preview"
+                      className="card-project-img"
+                    />
+                  </div>
+                </a>
               </Card>
 
-              {/* Card 3: SAMS with images.jpeg */}
+              {/* Card 3: Portfolio (You can swap the href to your target link) */}
               <Card customClass="portfolio-swap-card design-sams">
-                <div className="card-visual-header">
-                  <div className="card-bg-gradient" />
-                  <img
-                    src={generalImages}
-                    alt="SAMS Preview"
-                    className="card-project-img"
-                  />
-                </div>
-                <div className="card-content-footer">
-                  <h3>My Portfolio</h3>
-                  <p>
-                    A responsive web application showcasing my skills and
-                    projects.
-                  </p>
-                  <span className="card-tag">Full Stack</span>
-                </div>
+                <a
+                  href="#home" /* Navigates back to your top hero section or a specific URL */
+                  className="card-clickable-wrapper"
+                >
+                  <div className="card-header-bar">
+                    <i className="fas fa-code header-icon"></i>
+                    <span className="header-title">PORTFOLIO</span>
+                  </div>
+                  <div className="card-visual-header">
+                    <div className="card-bg-gradient" />
+                    <img
+                      src={generalImages}
+                      alt="My Portfolio Preview"
+                      className="card-project-img"
+                    />
+                  </div>
+                </a>
               </Card>
             </CardSwap>
           </div>
