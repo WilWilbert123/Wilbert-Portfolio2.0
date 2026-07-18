@@ -309,11 +309,9 @@ const Projects = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-badge">My Portfolio</span>
+         
           <h2 className="section-title">PROJECTS</h2>
-          <p className="section-subtitle">
-            Hover or hold to pause auto-scrolling. Feel free to manually swipe through my production codebases.
-          </p>
+       
         </motion.div>
 
         <div 
@@ -336,9 +334,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="carousel-indicator">
-          <i className="fas fa-play-circle animated-pulse-icon"></i> Auto-scrolling active (Hold or swipe to override)
-        </div>
+     
       </div>
     </section>
   );
