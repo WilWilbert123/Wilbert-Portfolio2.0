@@ -1,0 +1,130 @@
+:root {
+  --color-calendar-graph-day-bg: #161b22;
+  --color-calendar-graph-day-L1-bg: #0e4429;
+  --color-calendar-graph-day-L2-bg: #006d32;
+  --color-calendar-graph-day-L3-bg: #26a641;
+  --color-calendar-graph-day-L4-bg: #39d353;
+  --color-fg-muted: #8b949e;
+  --color-fg-default: #e6edf3;
+  --color-border-default: #30363d;
+  --color-accent: #2f81f7;
+}
+
+.github-profile-layout {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  display: flex;
+  gap: 32px;
+  max-width: 1040px;
+  margin: 0 auto;
+  background-color: transparent;
+  /* UPDATED: Centers the items horizontally inside the flex row wrapper */
+  justify-content: center; 
+  align-items: flex-start;
+  width: 100%;
+}
+
+.github-graph-section {
+  /* UPDATED: Prevents the graph section from taking up loose space so it centers cleanly */
+  flex: 0 1 850px; 
+  min-width: 0;
+}
+
+.github-graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.github-graph-title {
+  color: var(--color-fg-default);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.github-settings-dropdown {
+  color: var(--color-fg-muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.github-graph-card {
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  /* Restore balanced side paddings since it is centered */
+  padding: 24px; 
+  background-color: #0d1117;
+}
+
+.github-graph-scroll-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.github-graph-scroll-container svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hides screen reader accessibility logs safely */
+.github-graph-scroll-container [style*="position: absolute"][style*="width: 1px"],
+.github-graph-scroll-container ul,
+.github-graph-scroll-container li,
+.github-graph-scroll-container span[style*="font-size: 0"] {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+/* Sidebar Styling */
+.github-years-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  gap: 2px;
+  margin-top: 32px;
+  flex-shrink: 0;
+}
+
+.gh-year-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-fg-default);
+  font-size: 13px;
+  text-align: left;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.gh-year-btn:hover {
+  background-color: #21262d;
+}
+
+.gh-year-btn.active {
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .github-profile-layout {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+  .github-years-sidebar {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0;
+  }
+}

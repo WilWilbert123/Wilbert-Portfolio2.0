@@ -580,3 +580,51 @@
   color: inherit;         /* Ensures text doesn't turn standard link blue */
   cursor: pointer;        /* Shows the click pointer cursor */
 }
+
+.github-contributions-section {
+  background-color: #0d111700;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.github-contributions-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+
+.github-contributions-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.github-contributions-section {
+  padding: 40px 0;
+  width: 100%;
+}
+
+.github-contributions-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.github-section-header {
+  margin-bottom: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.github-main-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e6edf3;
+  margin-bottom: 1px;
+  letter-spacing: -0.5px;
+}
+
+.github-main-subtitle {
+  font-size: 14px;
+  color: #8b949e;
+  margin: 0;
+}

@@ -10,7 +10,7 @@ import Skills from "./components/Skills/Skills";
 import GooeyNav from "./components/GooeyNav/GooeyNav";
 import TextType from "./components/TextType/TextType";
 import CardSwap, { Card } from "./components/CardSwap/CardSwap";
-
+import GitHubContributions from "./components/GitHubContributions/GitHubContributions";
 // IMPORT YOUR LOCAL IMAGES HERE
 import echoImg from "./assets/echoweb.png";
 import echoImg2 from "./assets/echoapp.png";
@@ -388,11 +388,29 @@ function App() {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <Projects />
+
       {/* Skills Section */}
       <Skills />
 
-      {/* Projects Section */}
-      <Projects />
+     {/* GitHub Contributions Section */}
+<section className="github-contributions-section">
+  <div className="github-contributions-wrapper">
+    
+    {/* AUTHENTIC GITHUB SECTION TITLE HEADER */}
+    <div className="github-section-header">
+      <h2 className="github-main-title">GitHub Activity</h2>
+      <p className="github-main-subtitle">
+        My open-source contributions, repositories, and development streaks tracked in real-time.
+      </p>
+    </div>
+
+    {/* The Calendar component containing the layout and internal data */}
+    <GitHubContributions username="WilWilbert123" />
+    
+  </div>
+</section>
 
       {/* Contact Section */}
       <Contact />
