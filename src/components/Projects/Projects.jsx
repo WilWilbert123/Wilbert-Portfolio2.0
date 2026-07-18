@@ -336,9 +336,7 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="carousel-indicator">
-          <i className="fas fa-play-circle animated-pulse-icon"></i> Auto-scrolling active (Hold or swipe to override)
-        </div>
+     
       </div>
     </section>
   );
