@@ -55,42 +55,35 @@ const Contact = () => {
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'john.wilbertn@example.com',
-      link: 'mailto:john.wilbertn@example.com',
+      value: 'johnwilbertgamis2022@gmail.com',
+      link: 'https://mail.google.com/mail/u/0/#inbox?compose=jrjtXLFHXHRLFXvxdJCDmpLMMxcKpSWhHdlcRDCXhTvZmGrJnNGxmXzfLQlqTSkRKSkznzdM',
       color: '#ffffff'
     },
     {
       icon: 'fab fa-github',
       title: 'GitHub',
-      value: 'github.com/johnwilbertn',
-      link: 'https://github.com/johnwilbertn',
+      value: 'github.com/WilWilbert123',
+      link: 'https://github.com/WilWilbert123',
       color: '#ffffff'
     },
     {
       icon: 'fab fa-linkedin',
       title: 'LinkedIn',
-      value: 'linkedin.com/in/johnwilbertn',
-      link: 'https://linkedin.com/in/johnwilbertn',
-      color: '#ffffff'
-    },
-    {
-      icon: 'fab fa-twitter',
-      title: 'Twitter',
-      value: '@johnwilbertn',
-      link: 'https://twitter.com/johnwilbertn',
+      value: 'www.linkedin.com/in/john-wilbert-gamis-7b0a39247',
+      link: 'https://www.linkedin.com/in/john-wilbert-gamis-7b0a39247/',
       color: '#ffffff'
     },
     {
       icon: 'fas fa-phone',
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '09380836756',
+      link: null,
       color: '#ffffff'
     },
     {
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Taguig City',
       link: null,
       color: '#ffffff'
     }
@@ -126,7 +119,6 @@ const Contact = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <span className="section-badge">Get in Touch</span>
           <h2 className="section-title">Let's Connect</h2>
           <p className="section-subtitle">
             Have a project in mind? I'd love to hear about it. Feel free to reach out!
@@ -171,19 +163,49 @@ const Contact = () => {
             <motion.div variants={itemVariants} className="social-links">
               <h4>Follow Me</h4>
               <div className="social-icons">
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="https://github.com/WilWilbert123" 
+                  className="social-icon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
                   <i className="fab fa-github"></i>
                 </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="https://www.linkedin.com/in/john-wilbert-gamis-7b0a39247/" 
+                  className="social-icon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <i className="fab fa-linkedin-in"></i>
                 </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="#" 
+                  className="social-icon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
                   <i className="fab fa-twitter"></i>
                 </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="#" 
+                  className="social-icon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
                   <i className="fab fa-instagram"></i>
                 </a>
-                <a href="#" className="social-icon" target="_blank" rel="noopener noreferrer">
+                <a 
+                  href="#" 
+                  className="social-icon" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Dev.to"
+                >
                   <i className="fab fa-dev"></i>
                 </a>
               </div>
@@ -437,6 +459,7 @@ const Contact = () => {
           font-size: 18px;
           transition: all 0.3s ease;
           border: 1px solid rgba(255, 255, 255, 0.15);
+          text-decoration: none;
         }
 
         .social-icon:hover {
@@ -508,7 +531,6 @@ const Contact = () => {
           border: none;
           border-radius: 50px;
           color: #05050A;
-          规律: transparent;
           font-weight: 600;
           font-size: 1rem;
           cursor: pointer;
