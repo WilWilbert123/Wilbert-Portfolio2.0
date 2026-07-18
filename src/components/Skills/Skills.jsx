@@ -6,6 +6,7 @@ const Skills = () => {
     frontend: {
       name: 'Frontend & Mobile',
       icon: 'fas fa-mobile-alt',
+      accentColor: 'rgba(97, 218, 251, 0.15)', // React Blue glow
       skills: [
         { name: 'React Native', icon: 'fab fa-react', color: '#61DAFB' },
         { name: 'React.js', icon: 'fab fa-react', color: '#61DAFB' },
@@ -20,6 +21,7 @@ const Skills = () => {
     backend: {
       name: 'Backend & Cloud',
       icon: 'fas fa-server',
+      accentColor: 'rgba(51, 153, 51, 0.12)', // Node Green glow
       skills: [
         { name: 'Node.js', icon: 'fab fa-node-js', color: '#339933' },
         { name: 'Nest.js', icon: 'fab fa-node-js', color: '#E0234E' },
@@ -33,6 +35,7 @@ const Skills = () => {
     legacy: {
       name: 'Enterprise & Databases',
       icon: 'fas fa-layer-group',
+      accentColor: 'rgba(204, 41, 39, 0.1)', // Database Red glow
       skills: [
         { name: 'VB.NET', icon: 'fas fa-code', color: '#5C2D91' },
         { name: 'MSSQL', icon: 'fas fa-database', color: '#CC2927' },
@@ -43,6 +46,7 @@ const Skills = () => {
     designTools: {
       name: 'Design & Deployment',
       icon: 'fas fa-tools',
+      accentColor: 'rgba(242, 78, 30, 0.1)', // Figma Orange glow
       skills: [
         { name: 'Figma', icon: 'fab fa-figma', color: '#F24E1E' },
         { name: 'Canva', icon: 'fas fa-palette', color: '#00C4CC' },
@@ -58,22 +62,31 @@ const Skills = () => {
       <div className="skills-container">
         <div className="skills-header">
           <h2 className="section-title">Technical Skills</h2>
+          
         </div>
 
-        <div className="skills-categories-grid">
-          {Object.values(skillCategories).map((category, idx) => (
-            <div key={idx} className="category-block">
+        <div className="skills-layout-grid">
+          {Object.entries(skillCategories).map(([key, category]) => (
+            <div 
+              key={key} 
+              className={`category-card card-${key}`}
+              style={{ '--accent-glow': category.accentColor }}
+            >
               <h3 className="category-title">
                 <i className={`${category.icon} category-title-icon`}></i>
                 {category.name}
               </h3>
-              <div className="skills-list">
+              <div className="skills-flex-wrapper">
                 {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="skill-badge">
-                    <span className="skill-icon-wrapper" style={{ color: skill.color }}>
+                  <div 
+                    key={sIdx} 
+                    className="interactive-skill-badge"
+                    style={{ '--skill-brand-color': skill.color }}
+                  >
+                    <span className="skill-icon-box">
                       <i className={skill.icon}></i>
                     </span>
-                    <span className="skill-name">{skill.name}</span>
+                    <span className="skill-text">{skill.name}</span>
                   </div>
                 ))}
               </div>

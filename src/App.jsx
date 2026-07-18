@@ -11,6 +11,10 @@ import GooeyNav from "./components/GooeyNav/GooeyNav";
 import TextType from "./components/TextType/TextType";
 import CardSwap, { Card } from "./components/CardSwap/CardSwap";
 import GitHubContributions from "./components/GitHubContributions/GitHubContributions";
+import Beams from "./components/Beams/Beams";
+// Import your text decrypt component
+import DecryptedText from "./components/DecryptedText/DecryptedText";
+
 // IMPORT YOUR LOCAL IMAGES HERE
 import echoImg from "./assets/echoweb.png";
 import echoImg2 from "./assets/echoapp.png";
@@ -198,7 +202,17 @@ function App() {
         noiseAmount={0.1}
         distortion={0.08}
       />
-
+  {/* BACKGROUND LAYER 2: 3D Ambient Volumetric Beams */}
+    <Beams
+    beamWidth={3}
+    beamHeight={30}
+    beamNumber={20}
+    lightColor="#ffffff"
+    speed={2}
+    noiseIntensity={1.75}
+    scale={0.2}
+    rotation={30}
+  />
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-container">
@@ -209,7 +223,7 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="glow-text">John Wilbert Gamis</h1>
-            <div className="hero-title1">React Native Developer</div>
+            <div className="hero-title1">Full Stack Developer</div>
 
             {/* TextType for hero title */}
             <div className="hero-title">
@@ -299,13 +313,16 @@ function App() {
           {/* Left Side: Content/Text */}
           <div className="featured-cards-left">
             <h2 className="section-title">Featured Projects</h2>
-            <p className="section-subtitle">
-              A curated showcase of cross-platform mobile ecosystems, responsive
-              web solutions, and full-stack architectures. Each project is built
-              with an absolute focus on buttery-smooth UI/UX transitions, fluid
-              glassmorphic aesthetics, and highly scalable API integrations
-              designed to deliver a seamless experience across all devices.
-            </p>
+            
+            {/* DecryptedText component applied perfectly to the paragraph */}
+            <DecryptedText
+              text="A curated showcase of cross-platform mobile ecosystems, responsive web solutions, and full-stack architectures. Each project is built with an absolute focus on buttery-smooth UI/UX transitions, fluid glassmorphic aesthetics, and highly scalable API integrations designed to deliver a seamless experience across all devices."
+              animateOn="view"
+              revealDirection="start"
+              sequential={true}
+              speed={15}
+              className="section-subtitle"
+            />
           </div>
 
           {/* Right Side: CardSwap Component with Image Visual Panels */}
@@ -394,30 +411,27 @@ function App() {
       {/* Skills Section */}
       <Skills />
 
-     {/* GitHub Contributions Section */}
-<section className="github-contributions-section">
-  <div className="github-contributions-wrapper">
-    
-    {/* AUTHENTIC GITHUB SECTION TITLE HEADER */}
-    <div className="github-section-header">
-      <h2 className="github-main-title">GitHub Activity</h2>
-      <p className="github-main-subtitle">
-        My open-source contributions, repositories, and development streaks tracked in real-time.
-      </p>
-    </div>
+      {/* GitHub Contributions Section */}
+      <section className="github-contributions-section">
+        <div className="github-contributions-wrapper">
+          
+          {/* AUTHENTIC GITHUB SECTION TITLE HEADER */}
+          <div className="github-section-header">
+            <h2 className="github-main-title">GitHub Activity</h2>
+          </div>
 
-    {/* The Calendar component containing the layout and internal data */}
-    <GitHubContributions username="WilWilbert123" />
-    
-  </div>
-</section>
+          {/* The Calendar component containing the layout and internal data */}
+          <GitHubContributions username="WilWilbert123" />
+          
+        </div>
+      </section>
 
       {/* Contact Section */}
       <Contact />
 
       {/* Footer */}
       <div className="footer">
-        © 2025 John Wilbert Gamis — Full Stack Developer
+        © 2026 John Wilbert Gamis — Full Stack Developer
       </div>
     </div>
   );
