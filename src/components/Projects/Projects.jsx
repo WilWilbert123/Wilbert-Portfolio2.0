@@ -16,10 +16,20 @@ const Projects = () => {
   const [startX, setStartX] = useState(0);
   const [scrollLeftState, setScrollLeftState] = useState(0);
   const [isUserInteracting, setIsUserInteracting] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   const autoScrollSpeed = 0.6; 
   const interactionTimeoutRef = useRef(null);
   const animationFrameRef = useRef(null);
+
+  // Check for mobile on resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Projects strictly organized and updated to reflect your layout requirements
   const allProjects = [
@@ -151,8 +161,10 @@ const Projects = () => {
     }
   ];
 
-  // Continuous seamless auto-scrolling engine
+  // Continuous seamless auto-scrolling engine (only on desktop)
   useEffect(() => {
+    if (isMobile) return; // Disable auto-scroll on mobile
+    
     const slider = sliderRef.current;
     if (!slider) return;
 
@@ -176,7 +188,7 @@ const Projects = () => {
     }
 
     return () => cancelAnimationFrame(animationFrameRef.current);
-  }, [isUserInteracting, isMouseDown, inView]);
+  }, [isUserInteracting, isMouseDown, inView, isMobile]);
 
   // Infinite position normalization checks for manual track dragging overrides
   const handleManualScrollBoundsCheck = () => {
@@ -232,6 +244,29 @@ const Projects = () => {
     const walk = (x - startX) * 1.5;
     sliderRef.current.scrollLeft = scrollLeftState - walk;
     handleManualScrollBoundsCheck();
+  };
+
+  // Only add mouse/touch handlers on desktop
+  const getSliderProps = () => {
+    if (isMobile) {
+      return {
+        className: "slider-viewport",
+        ref: sliderRef,
+      };
+    }
+    
+    return {
+      className: "slider-viewport",
+      ref: sliderRef,
+      onMouseDown: handleMouseDown,
+      onMouseUp: handleMouseLeaveOrUp,
+      onMouseLeave: handleMouseLeaveOrUp,
+      onMouseMove: handleMouseMove,
+      onTouchStart: handleTouchStart,
+      onTouchMove: handleTouchMove,
+      onTouchEnd: handleInteractionPause,
+      onMouseEnter: handleInteractionPause,
+    };
   };
 
   // Modular helper function for handling unified infinite track rendering sets
@@ -309,32 +344,17 @@ const Projects = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-         
           <h2 className="section-title">PROJECTS</h2>
-       
         </motion.div>
 
-        <div 
-          className="slider-viewport" 
-          ref={sliderRef}
-          onMouseDown={handleMouseDown}
-          onMouseUp={handleMouseLeaveOrUp}
-          onMouseLeave={handleMouseLeaveOrUp}
-          onMouseMove={handleMouseMove}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleInteractionPause}
-          onMouseEnter={handleInteractionPause}
-        >
-          <div className="slider-track">
+        <div {...getSliderProps()}>
+          <div className={`slider-track ${isMobile ? 'mobile-grid' : ''}`}>
             {/* Set A */}
             {renderCardList(allProjects, "set-a")}
-            {/* Set B (Cloned set for infinite non-blink alignment tracking loops) */}
-            {renderCardList(allProjects, "set-b")}
+            {/* Set B (Cloned set for infinite non-blink alignment tracking loops) - Only on desktop */}
+            {!isMobile && renderCardList(allProjects, "set-b")}
           </div>
         </div>
-
-     
       </div>
     </section>
   );

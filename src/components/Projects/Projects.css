@@ -68,11 +68,10 @@
 }
 
 /* --- OUTER CARD WRAPPER FOR TRACK LAYOUT --- */
-/* --- OUTER CARD WRAPPER FOR TRACK LAYOUT --- */
 .project-card-wrapper {
   width: calc((1440px * 0.92 - 60px) / 3);
   max-width: 410px;
-  height: 480px; /* 1. Explicitly locks the outer container height */
+  height: 480px;
   flex-shrink: 0;
   user-select: none;
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -90,7 +89,7 @@
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  height: 100%; /* 2. Forces BorderGlow's inner content to fill the exact height */
+  height: 100%;
   overflow: hidden;
 }
 
@@ -170,7 +169,7 @@
   line-height: 1.6;
   margin-bottom: 16px;
   font-size: 0.9rem;
-  height: 72px; /* 3. Explicit fixed height for description text */
+  height: 72px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -186,14 +185,14 @@
   gap: 6px;
   margin-bottom: 24px;
   z-index: 1;
-  height: 58px;       /* 4. Fixed height so more/fewer tags don't push the layout */
-  overflow-y: auto;   /* Allows internal scrolling if a project has huge lists */
-  scrollbar-width: none; /* Hides scrollbar track on Firefox */
-  flex-grow: 1;       /* Takes up remaining middle space predictably */
+  height: 58px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  flex-grow: 1;
 }
 
 .project-tech-stack-premium::-webkit-scrollbar {
-  display: none;      /* Hides scrollbar track on Chrome/Safari */
+  display: none;
 }
 
 .tech-tag-premium {
@@ -214,7 +213,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 20px;
   z-index: 1;
-  margin-top: auto;   /* 5. Forces footer alignment to stay perfectly at the card baseline */
+  margin-top: auto;
   flex-shrink: 0;
 }
 
@@ -236,21 +235,175 @@
 /* --- RESPONSIVE OVERRIDES --- */
 @media (max-width: 1200px) {
   .project-card-wrapper {
-    width: calc((100vw - 8% - 30px) / 2); 
+    width: calc((100vw - 8% - 30px) / 2);
     max-width: 380px;
     height: 460px;
   }
 }
 
 @media (max-width: 768px) {
-  .project-card-wrapper {
-    width: 80vw; 
-    height: 450px;
+  /* Mobile grid layout - removes horizontal scrolling */
+  .slider-track.mobile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
   }
+  
+  .slider-viewport {
+    overflow: visible;
+    padding: 10px 0;
+    cursor: default;
+  }
+  
+  .slider-viewport:active {
+    cursor: default;
+  }
+  
+  .project-card-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 420px;
+    transform: none !important;
+  }
+  
+  .project-card-wrapper:hover {
+    transform: none !important;
+  }
+  
   .project-card-premium-content {
     padding: 24px;
   }
+  
   .project-description-premium {
-    height: 72px;
+    height: auto;
+    min-height: 60px;
+    font-size: 0.85rem;
+    -webkit-line-clamp: 4;
+  }
+  
+  .project-tech-stack-premium {
+    height: auto;
+    min-height: 40px;
+    margin-bottom: 16px;
+    overflow-y: visible;
+  }
+  
+  .project-title-premium {
+    font-size: 1.1rem;
+  }
+  
+  .project-icon-premium {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+  
+  .project-category-premium {
+    font-size: 0.6rem;
+    padding: 4px 12px;
+  }
+  
+  .projects-section {
+    padding: 60px 0;
+  }
+  
+  .slider-track {
+    gap: 16px;
+  }
+  
+  .project-links-premium {
+    padding-top: 16px;
+  }
+  
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card-wrapper {
+    min-height: 380px;
+  }
+  
+  .project-card-premium-content {
+    padding: 18px;
+  }
+  
+  .project-title-premium {
+    font-size: 1rem;
+  }
+  
+  .project-description-premium {
+    font-size: 0.8rem;
+    min-height: 50px;
+  }
+  
+  .project-icon-premium {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+  
+  .project-category-premium {
+    font-size: 0.5rem;
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+  }
+  
+  .tech-tag-premium {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+  
+  .project-links-premium {
+    padding-top: 14px;
+  }
+  
+  .project-link-premium {
+    font-size: 0.75rem;
+  }
+  
+  .projects-section {
+    padding: 40px 0;
+  }
+  
+  .projects-container {
+    padding: 0 3%;
+  }
+  
+  .projects-header {
+    margin-bottom: 24px;
+  }
+}
+
+/* Support for very small screens */
+@media (max-width: 360px) {
+  .project-card-wrapper {
+    min-height: 340px;
+  }
+  
+  .project-card-premium-content {
+    padding: 14px;
+  }
+  
+  .project-title-premium {
+    font-size: 0.9rem;
+  }
+  
+  .project-description-premium {
+    font-size: 0.75rem;
+    min-height: 40px;
+  }
+  
+  .project-tech-stack-premium {
+    gap: 4px;
+  }
+  
+  .tech-tag-premium {
+    font-size: 0.55rem;
+    padding: 2px 6px;
   }
 }
