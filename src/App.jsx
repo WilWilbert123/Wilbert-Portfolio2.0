@@ -223,7 +223,7 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="glow-text">John Wilbert Gamis</h1>
-            <div className="hero-title1">Full Stack Developer</div>
+            <div className="hero-title1">Software Engineer</div>
 
             {/* TextType for hero title */}
             <div className="hero-title">
