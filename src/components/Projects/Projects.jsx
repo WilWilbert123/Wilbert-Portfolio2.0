@@ -34,6 +34,27 @@ const Projects = () => {
   // Projects strictly organized and updated to reflect your layout requirements
   const allProjects = [
     {
+      title: "AI MOODCRAFT",
+      type: "Personal Project",
+      subtext: "Built with Vite & Gemini AI",
+      description:
+        "An intelligent mood-crafting web application that generates personalized atmospheric experiences, tailored aesthetics, and dynamic mood reflections powered by Gemini AI.",
+      icon: "fas fa-magic",
+      tech: [
+        "Vite",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Supabase",
+        "Gemini AI",
+        "Vercel",
+        "Next.js",
+        "React",
+        
+      ],
+      color: "#d946ef",
+    },
+    {
       title: "ECHO STAMP WEBSITE",
       type: "Personal Project",
       subtext: "Built with React JS",
@@ -59,6 +80,9 @@ const Projects = () => {
         "Render",
         "Firebase",
         "Resend",
+        "Google Maps API",
+        "REST APIs Integration",
+        "AI Integration",
       ],
       color: "#8b5cf6",
     },
@@ -118,14 +142,15 @@ const Projects = () => {
       color: "#ec4899",
     },
     {
-  title: "LIBRARY MONITORING SYSTEM",
-  type: "Enterprise Software",
-  subtext: "Built with Visual Basic .NET",
-  description: "A comprehensive library management system designed to monitor book inventory, track borrowed and returned books, and generate detailed reporting.",
-  icon: "fas fa-desktop",
-  tech: ["VB.NET", "MySQL Workbench", "Crystal Reports"],
-  color: "#a855f7",
-},
+      title: "LIBRARY MONITORING SYSTEM",
+      type: "Enterprise Software",
+      subtext: "Built with Visual Basic .NET",
+      description:
+        "A comprehensive library management system designed to monitor book inventory, track borrowed and returned books, and generate detailed reporting.",
+      icon: "fas fa-desktop",
+      tech: ["VB.NET", "MySQL Workbench", "Crystal Reports"],
+      color: "#a855f7",
+    },
     {
       title: "RETAIL GIANT INVENTORY SYSTEM + POS",
       type: "Enterprise Software",
@@ -234,7 +259,7 @@ const Projects = () => {
       description:
         "High performance 3D responsive presentation web landing space featuring premium custom glassmorphic layout elements.",
       icon: "fas fa-globe-americas",
-      tech: ["React", "Vite", "CSS", "TypeScript"],
+      tech: ["React", "Vite", "CSS", "TypeScript", "Three.js", "Framer Motion", "Vercel"],
       color: "#0284c7",
     },
   ];

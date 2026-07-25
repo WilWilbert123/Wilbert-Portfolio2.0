@@ -19,7 +19,7 @@ import DecryptedText from "./components/DecryptedText/DecryptedText";
 import echoImg from "./assets/echoweb.png";
 import echoImg2 from "./assets/echoapp.png";
 import generalImages from "./assets/portfolio.png";
-
+import aimoodImg from './assets/AimoodCraft.png';
 import "./App.css";
 
 function App() {
@@ -307,7 +307,7 @@ function App() {
         </div>
       </section>
 
-      {/* Featured Cards Section */}
+     {/* Featured Cards Section */}
       <section className="featured-cards-section">
         <div className="featured-cards-container">
           {/* Left Side: Content/Text */}
@@ -380,7 +380,30 @@ function App() {
                 </a>
               </Card>
 
-              {/* Card 3: Portfolio (You can swap the href to your target link) */}
+              {/* Card 3: AI MoodCraft */}
+              <Card customClass="portfolio-swap-card design-aimood-craft">
+                <a
+                  href="https://ai-mood-craft.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-clickable-wrapper"
+                >
+                  <div className="card-header-bar">
+                    <i className="fas fa-magic header-icon"></i>
+                    <span className="header-title">AI MOODCRAFT</span>
+                  </div>
+                  <div className="card-visual-header">
+                    <div className="card-bg-gradient" />
+                    <img
+                      src={aimoodImg}
+                      alt="AI MoodCraft Preview"
+                      className="card-project-img"
+                    />
+                  </div>
+                </a>
+              </Card>
+
+              {/* Card 4: Portfolio */}
               <Card customClass="portfolio-swap-card design-sams">
                 <a
                   href="#home" /* Navigates back to your top hero section or a specific URL */
