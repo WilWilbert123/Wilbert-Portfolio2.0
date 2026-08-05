@@ -67,10 +67,9 @@
 }
 
 /* Asymmetric card mapping */
-.card-frontend { grid-column: span 3; }
-.card-backend { grid-column: span 3; }
-.card-legacy { grid-column: span 3; }
-.card-designTools { grid-column: span 3; }
+.category-card {
+  grid-column: span 3;
+}
 
 .category-card:hover {
   transform: translateY(-4px);
@@ -156,7 +155,7 @@
 
 /* Responsive Layout Adjustments */
 @media (max-width: 1024px) {
-  .card-frontend, .card-backend, .card-legacy, .card-designTools {
+  .category-card {
     grid-column: span 3; /* Falls into standard double column rows */
   }
 }
@@ -175,11 +174,8 @@
     gap: 20px;
   }
   
-  .card-frontend, .card-backend, .card-legacy, .card-designTools {
-    grid-column: span 1;
-  }
-  
   .category-card {
+    grid-column: span 1;
     padding: 24px;
   }
 }
