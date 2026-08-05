@@ -105,42 +105,7 @@ const Projects = () => {
       ],
       color: "#10b981",
     },
-    {
-      title: "MAP MEMORIES",
-      type: "Freelancer",
-      subtext: "Built with React Native",
-      description:
-        "A cross-platform travel application for documenting memories with precise location data. Features deep integration with Google Maps.",
-      icon: "fas fa-mobile-alt",
-      tech: [
-        "React Native",
-        "TypeScript",
-        "Node.js",
-        "MongoDB",
-        "Google Maps API",
-        "JWT Auth",
-        "Firebase",
-      ],
-      color: "#3b82f6",
-    },
-    {
-      title: "GAL APPAREL",
-      type: "Freelancer",
-      subtext: "Built with React Native",
-      description:
-        "A modern boutique experience featuring product categorization, secure JWT authentication, and a real-time synchronized cart.",
-      icon: "fas fa-mobile-alt",
-      tech: [
-        "React Native",
-        "Node.js",
-        "Express.js",
-        "JWT Auth",
-        "MongoDB Atlas",
-        "Firebase",
-        "REST APIs Integration",
-      ],
-      color: "#ec4899",
-    },
+
     {
       title: "LIBRARY MONITORING SYSTEM",
       type: "Enterprise Software",

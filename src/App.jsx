@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact";
 import LogoLoop from "./components/LogoLoop/LogoLoop";
 import SplashCursor from "./components/SplashCursor/SplashCursor";
 import Skills from "./components/Skills/Skills";
+import Certifications from "./components/Certifications/Certifications";
 import GooeyNav from "./components/GooeyNav/GooeyNav";
 import TextType from "./components/TextType/TextType";
 import CardSwap, { Card } from "./components/CardSwap/CardSwap";
@@ -170,6 +171,7 @@ function App() {
   const navItems = [
     { label: "Home", href: "#home", icon: "fas fa-home" },
     { label: "Skills", href: "#skills", icon: "fas fa-code" },
+    { label: "Certificates", href: "#certifications", icon: "fas fa-certificate" },
     { label: "Projects", href: "#projects", icon: "fas fa-project-diagram" },
     { label: "Contact", href: "#contact", icon: "fas fa-envelope" },
   ];
@@ -434,6 +436,9 @@ function App() {
       {/* Skills Section */}
       <Skills />
 
+      {/* Certifications Section */}
+      <Certifications />
+
       {/* GitHub Contributions Section */}
       <section className="github-contributions-section">
         <div className="github-contributions-wrapper">
@@ -454,7 +459,7 @@ function App() {
 
       {/* Footer */}
       <div className="footer">
-        © 2026 John Wilbert Gamis — Full Stack Developer
+        © 2026 John Wilbert Gamis — Software Engineer
       </div>
     </div>
   );
