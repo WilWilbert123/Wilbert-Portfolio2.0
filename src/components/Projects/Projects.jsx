@@ -1,8 +1,45 @@
-// src/components/Projects/Projects.jsx
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BorderGlow from "../BorderGlow/BorderGlow";
+import ProjectModal from "./ProjectModal";
+import retail1 from "../../assets/Retailgiant/retail1.png";
+import retail2 from "../../assets/Retailgiant/retail2.png";
+import retail3 from "../../assets/Retailgiant/retail3.png";
+import retail4 from "../../assets/Retailgiant/retail4.png";
+import play1 from "../../assets/Playmonitoring/play1.png";
+import play2 from "../../assets/Playmonitoring/play2.png";
+import play3 from "../../assets/Playmonitoring/play3.png";
+import play4 from "../../assets/Playmonitoring/play4.png";
+import canteen1 from "../../assets/CanteenBilling/canteen1.png";
+import canteen2 from "../../assets/CanteenBilling/canteen2.png";
+import canteen3 from "../../assets/CanteenBilling/canteen3.png";
+import canteen4 from "../../assets/CanteenBilling/canteen4.png";
+import canteen5 from "../../assets/CanteenBilling/canteen5.png";
+import canteen6 from "../../assets/CanteenBilling/canteen6.png";
+import bisbio1 from "../../assets/BISBIO/bisbio1.png";
+import bisbio2 from "../../assets/BISBIO/bisbio2.png";
+import bisbio3 from "../../assets/BISBIO/bisbio3.png";
+import bisbio4 from "../../assets/BISBIO/bisbio4.png";
+import bisbio5 from "../../assets/BISBIO/bisbio5.png";
+import asset1 from "../../assets/FIxedAsset/asset1.png";
+import asset2 from "../../assets/FIxedAsset/asset2.png";
+import kiosk1 from "../../assets/playkiok/kiosk1.png";
+import eblotter1 from "../../assets/Eblotter/eblotter1.jpg";
+import eblotter2 from "../../assets/Eblotter/eblotter2.jpg";
+import eblotter3 from "../../assets/Eblotter/eblotter3.webp";
+import eblotter4 from "../../assets/Eblotter/eblotter4.webp";
+import eblotter5 from "../../assets/Eblotter/eblotter5.webp";
+import eblotter6 from "../../assets/Eblotter/eblotter6.webp";
+import halal1 from "../../assets/EverythingHalal/halal1.png";
+import halal2 from "../../assets/EverythingHalal/halal2.png";
+import halal3 from "../../assets/EverythingHalal/halal3.png";
+import halal4 from "../../assets/EverythingHalal/halal4.png";
+import halal5 from "../../assets/EverythingHalal/halal5.png";
+import halal6 from "../../assets/EverythingHalal/halal6.png";
+import halal7 from "../../assets/EverythingHalal/halal7.png";
+import halal8 from "../../assets/EverythingHalal/halal8.png";
+import libraryImg from "../../assets/Library/images.jpeg";
 import "./Projects.css";
 
 const Projects = () => {
@@ -11,6 +48,7 @@ const Projects = () => {
     threshold: 0.05,
   });
 
+  const [selectedProject, setSelectedProject] = useState(null);
   const sliderRef = useRef(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -34,76 +72,6 @@ const Projects = () => {
   // Projects strictly organized and updated to reflect your layout requirements
   const allProjects = [
     {
-      title: "STUDENT HELP",
-      type: "Personal Project",
-      subtext: "Built with Next.js & Gemini API",
-      description:
-        "An AI-powered learning app where users can capture and upload images for analysis. It includes a knowledge-testing questionnaire, private browser-based storage, and a history function to recall past analyses.",
-      icon: "fas fa-robot",
-      tech: [
-        "Next.js",
-        "TypeScript",
-        "Gemini API",
-        "Vercel",
-        "Browser Storage"
-      ],
-      color: "#ec4899",
-      link: "https://student-help-ecru.vercel.app/"
-    },
-    {
-      title: "AI MOODCRAFT",
-      type: "Personal Project",
-      subtext: "Built with Vite & Gemini AI",
-      description:
-        "An intelligent mood-crafting web application that generates personalized atmospheric experiences, tailored aesthetics, and dynamic mood reflections powered by Gemini AI.",
-      icon: "fas fa-magic",
-      tech: [
-        "Vite",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "Supabase",
-        "Gemini AI",
-        "Vercel",
-        "Next.js",
-        "React",
-        
-      ],
-      color: "#d946ef",
-    },
-    {
-      title: "ECHO STAMP WEBSITE",
-      type: "Personal Project",
-      subtext: "Built with React JS",
-      description:
-        "A high-performance, fully responsive landing website for my app published on the Google Play Store, built with modern React patterns and hosted on Vercel.",
-      icon: "fas fa-qrcode",
-      tech: ["React", "Vite", "CSS", "TypeScript", "Vercel"],
-      color: "#6366f1",
-    },
-    {
-      title: "ECHO STAMP APP",
-      type: "Personal Project",
-      subtext: "Built with React Native",
-      description:
-        "A location-based journaling app designed to capture, preserve, and map meaningful moments using photos, personal stories, and digital echoes published on the Google Play Store.",
-      icon: "fas fa-qrcode",
-      tech: [
-        "React Native",
-        "Node.js",
-        "Express.js",
-        "MongoDB Atlas",
-        "JWT Auth",
-        "Render",
-        "Firebase",
-        "Resend",
-        "Google Maps API",
-        "REST APIs Integration",
-        "AI Integration",
-      ],
-      color: "#8b5cf6",
-    },
-    {
       title: "EVERYTHING HALAL",
       type: "Project",
       subtext: "Built with React Native",
@@ -121,6 +89,9 @@ const Projects = () => {
         "Google Maps API",
       ],
       color: "#10b981",
+      coverImage: halal1,
+      gallery: [halal1, halal2, halal3, halal4, halal5, halal6, halal7, halal8],
+      link: "https://apkpure.com/everything-halal/com.everythinghalalapp"
     },
 
     {
@@ -132,6 +103,8 @@ const Projects = () => {
       icon: "fas fa-desktop",
       tech: ["VB.NET", "MySQL Workbench", "Crystal Reports"],
       color: "#a855f7",
+      coverImage: libraryImg,
+      gallery: [libraryImg],
     },
     {
       title: "RETAIL GIANT INVENTORY SYSTEM + POS",
@@ -148,22 +121,26 @@ const Projects = () => {
         "Views",
       ],
       color: "#f59e0b",
+      coverImage: retail1,
+      gallery: [retail1, retail2, retail3, retail4],
     },
     {
       title: "CANTEEN BILLING SYSTEM",
-      type: "Enterprise Software",
+      type: "Desktop App",
       subtext: "Built with Visual Basic .Net",
       description:
-        "A streamlined cashier panel and billing system with daily sales monitoring and automated receipt printing.",
-      icon: "fas fa-desktop",
+        "A fast and efficient point-of-sale system designed specifically for school and corporate canteens.",
+      icon: "fas fa-cash-register",
       tech: [
         "VB.NET",
         "MS SQL Server",
-        "Stored Procedures",
         "Crystal Reports",
+        "Stored Procedures",
         "Views",
       ],
-      color: "#14b8a6",
+      color: "#10b981",
+      coverImage: canteen4,
+      gallery: [canteen4, canteen1, canteen2, canteen3, canteen5, canteen6],
     },
     {
       title: "PLAY MONITORING SYSTEM + POS",
@@ -180,6 +157,8 @@ const Projects = () => {
         "Views",
       ],
       color: "#eab308",
+      coverImage: play2,
+      gallery: [play2, play1, play3, play4],
     },
     {
       title: "PLAY MONITORING KIOSK",
@@ -190,6 +169,8 @@ const Projects = () => {
       icon: "fas fa-columns",
       tech: ["VB.NET", "MS SQL Server", "REST API", "QR Code Generation"],
       color: "#ca8a04",
+      coverImage: kiosk1,
+      gallery: [kiosk1],
     },
     {
       title: "FIXED ASSET MANAGEMENT SYSTEM",
@@ -207,6 +188,8 @@ const Projects = () => {
         "SMTP Email Nodemailer",
       ],
       color: "#ef4444",
+      coverImage: asset2,
+      gallery: [asset2, asset1],
     },
     {
       title: "BISBIO TIME MANAGEMENT SYSTEM",
@@ -223,6 +206,8 @@ const Projects = () => {
         "Crystal Reports",
       ],
       color: "#6b7280",
+      coverImage: bisbio1,
+      gallery: [bisbio1, bisbio2, bisbio3, bisbio4, bisbio5],
     },
     {
       title: "E-BLOTTER SYSTEM",
@@ -231,18 +216,10 @@ const Projects = () => {
       description:
         "A digital transformation project for local government, replacing manual logging with a secure resident record system.",
       icon: "fas fa-desktop",
-      tech: ["VB.NET", "MySQL Workbench", "Crystal Reports"],
+      tech: ["VB.NET", "MySQL Workbench", "XAMPP", "Crystal Reports"],
       color: "#06b6d4",
-    },
-    {
-      title: "PERSONAL PORTFOLIO WEBSITE",
-      type: "Personal Project",
-      subtext: "Built with React + Vite",
-      description:
-        "High performance 3D responsive presentation web landing space featuring premium custom glassmorphic layout elements.",
-      icon: "fas fa-globe-americas",
-      tech: ["React", "Vite", "CSS", "TypeScript", "Three.js", "Framer Motion", "Vercel"],
-      color: "#0284c7",
+      coverImage: eblotter2,
+      gallery: [eblotter2, eblotter1, eblotter3, eblotter4, eblotter5, eblotter6],
     },
   ];
 
@@ -378,40 +355,54 @@ const Projects = () => {
           colors={[project.color, "#ffffff", "#120F17"]}
           fillOpacity={0.06}
         >
-          <div className="project-card-premium-content">
+          <div
+            className="project-card-premium-content"
+            onClick={() => setSelectedProject(project)}
+            style={{ cursor: "pointer" }}
+          >
             <div
               className="card-glass-glow"
               style={{ backgroundColor: `${project.color}0a` }}
             />
 
-            <div className="card-top-row">
-              <div
-                className="project-icon-premium"
-                style={{
-                  background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)`,
-                  border: `1px solid ${project.color}30`,
-                  color: project.color,
-                }}
-              >
-                <i className={project.icon}></i>
+            {!project.coverImage && (
+              <div className="card-top-row">
+                <div
+                  className="project-icon-premium"
+                  style={{
+                    background: `linear-gradient(135deg, ${project.color}20, ${project.color}05)`,
+                    border: `1px solid ${project.color}30`,
+                    color: project.color,
+                  }}
+                >
+                  <i className={project.icon}></i>
+                </div>
+                <span
+                  className="project-category-premium"
+                  style={{
+                    color: project.color,
+                    backgroundColor: `${project.color}12`,
+                  }}
+                >
+                  {project.type}
+                </span>
               </div>
-              <span
-                className="project-category-premium"
-                style={{
-                  color: project.color,
-                  backgroundColor: `${project.color}12`,
-                }}
-              >
-                {project.type}
-              </span>
-            </div>
+            )}
+
+            {project.coverImage && (
+              <div className="project-card-cover-wrapper" style={{ borderColor: `${project.color}20` }}>
+                <img src={project.coverImage} alt={project.title} className="project-card-cover-img" />
+              </div>
+            )}
 
             <div className="project-identity-block">
               <h3 className="project-title-premium">{project.title}</h3>
               <span className="project-subtext-premium">{project.subtext}</span>
             </div>
 
-            <p className="project-description-premium">{project.description}</p>
+            {!project.coverImage && (
+              <p className="project-description-premium">{project.description}</p>
+            )}
 
             <div className="project-tech-stack-premium">
               {project.tech.map((tech, techIndex) => (
@@ -429,6 +420,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="project-link-premium"
                   style={{ "--accent-color": project.color, textDecoration: "none", display: "inline-block" }}
+                  onClick={(e) => e.stopPropagation()}
                 >
                   View System details{" "}
                   <i
@@ -437,16 +429,17 @@ const Projects = () => {
                   ></i>
                 </a>
               ) : (
-                <span
+                <button
                   className="project-link-premium"
-                  style={{ "--accent-color": project.color }}
+                  style={{ "--accent-color": project.color, background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: 'inherit' }}
+                  onClick={(e) => { e.stopPropagation(); setSelectedProject(project); }}
                 >
                   View System details{" "}
                   <i
                     className="fas fa-arrow-right"
                     style={{ fontSize: "0.75rem", marginLeft: "4px" }}
                   ></i>
-                </span>
+                </button>
               )}
             </div>
           </div>
@@ -476,6 +469,12 @@ const Projects = () => {
           </div>
         </div>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };

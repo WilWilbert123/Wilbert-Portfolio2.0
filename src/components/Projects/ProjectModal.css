@@ -1,0 +1,214 @@
+.project-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 5, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  background: #12121a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.project-modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+.project-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.project-modal-left {
+  padding: 40px;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.project-modal-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+}
+
+.project-modal-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.project-modal-subtext {
+  font-size: 1rem;
+  color: #a1a1aa;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.project-modal-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #d4d4d8;
+  margin-bottom: 32px;
+}
+
+.project-modal-subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.project-modal-tech {
+  margin-bottom: 40px;
+}
+
+.project-modal-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.project-modal-link:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.project-modal-right {
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.project-modal-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project-modal-img-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-modal-img-wrapper:hover .project-modal-img {
+  transform: scale(1.02);
+}
+
+.project-modal-no-images {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #52525b;
+  min-height: 300px;
+}
+
+.project-modal-no-images i {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 992px) {
+  .project-modal-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-modal-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .project-modal-right {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-modal-left, .project-modal-right {
+    padding: 24px;
+  }
+  
+  .project-modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .project-modal-close {
+    top: 15px;
+    right: 15px;
+  }
+}

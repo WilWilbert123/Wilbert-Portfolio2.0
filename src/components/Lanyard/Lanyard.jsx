@@ -26,11 +26,11 @@ const Loader = () => (
   </div>
 );
 
-export default function Lanyard({ 
-  position = [0, 0, 18], 
-  gravity = [0, -40, 0], 
-  fov = 20, 
-  transparent = true 
+export default function Lanyard({
+  position = [0, 0, 18],
+  gravity = [0, -40, 0],
+  fov = 20,
+  transparent = true
 }) {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -50,7 +50,7 @@ export default function Lanyard({
       setIsTablet(width >= 768 && width < 1024);
       setIsSmallMobile(width < 480);
     };
-    
+
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -76,7 +76,7 @@ export default function Lanyard({
       <Canvas
         camera={{ position: cameraProps.position, fov: cameraProps.fov }}
         dpr={[1, isAndroid ? 1 : isMobile ? 1.5 : 2]}
-        gl={{ 
+        gl={{
           alpha: transparent,
           antialias: !isAndroid,
           powerPreference: "high-performance",
@@ -92,14 +92,14 @@ export default function Lanyard({
       >
         <ambientLight intensity={Math.PI} />
         <Suspense fallback={null}>
-          <Physics 
-            gravity={gravityValue} 
+          <Physics
+            gravity={gravityValue}
             timeStep={timeStep}
             {...(isAndroid ? { iterations: 5 } : {})}
           >
-            <Band 
-              isMobile={isMobile} 
-              isSmallMobile={isSmallMobile} 
+            <Band
+              isMobile={isMobile}
+              isSmallMobile={isSmallMobile}
               isAndroid={isAndroid}
             />
           </Physics>
@@ -122,30 +122,30 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isSmallMobile = f
   const j2 = useRef();
   const j3 = useRef();
   const card = useRef();
-  
+
   const vec = new THREE.Vector3();
   const ang = new THREE.Vector3();
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
-  
-  const segmentProps = { 
-    type: 'dynamic', 
-    canSleep: true, 
-    colliders: false, 
-    angularDamping: 4, 
-    linearDamping: 4 
+
+  const segmentProps = {
+    type: 'dynamic',
+    canSleep: true,
+    colliders: false,
+    angularDamping: 4,
+    linearDamping: 4
   };
-  
+
   const { nodes, materials } = useGLTF(cardGLB);
   const texture = useTexture(lanyardTexture);
-  
+
   const [curve] = useState(
     () => new THREE.CatmullRomCurve3([
-      new THREE.Vector3(), new THREE.Vector3(), 
+      new THREE.Vector3(), new THREE.Vector3(),
       new THREE.Vector3(), new THREE.Vector3()
     ])
   );
-  
+
   const [dragged, drag] = useState(false);
   const [hovered, hover] = useState(false);
 
@@ -213,25 +213,25 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isSmallMobile = f
 
   useFrame((state, delta) => {
     if (isAndroid && !band.current) return;
-    
+
     if (dragged && card.current && isDraggable) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
       dir.copy(vec).sub(state.camera.position).normalize();
       vec.add(dir.multiplyScalar(state.camera.position.length()));
       [card, j1, j2, j3, fixed].forEach(ref => ref.current?.wakeUp());
-      card.current?.setNextKinematicTranslation({ 
-        x: vec.x - dragged.x, 
-        y: vec.y - dragged.y, 
-        z: vec.z - dragged.z 
+      card.current?.setNextKinematicTranslation({
+        x: vec.x - dragged.x,
+        y: vec.y - dragged.y,
+        z: vec.z - dragged.z
       });
     }
-    
+
     if (fixed.current && band.current) {
       [j1, j2].forEach(ref => {
         if (!ref.current.lerped) {
           ref.current.lerped = new THREE.Vector3().copy(ref.current.translation());
         }
-        const clampedDistance = Math.max(0.1, Math.min(1, 
+        const clampedDistance = Math.max(0.1, Math.min(1,
           ref.current.lerped.distanceTo(ref.current.translation())
         ));
         ref.current.lerped.lerp(
@@ -239,16 +239,16 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isSmallMobile = f
           delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
         );
       });
-      
+
       curve.points[0].copy(j3.current.translation());
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
-      
+
       if (band.current?.geometry) {
         band.current.geometry.setPoints(curve.getPoints(getCurvePoints()));
       }
-      
+
       if (card.current) {
         ang.copy(card.current.angvel());
         rot.copy(card.current.rotation());
@@ -284,10 +284,10 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false, isSmallMobile = f
         <RigidBody position={[jointOffset * 3, 0, 0]} ref={j3} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
-        <RigidBody 
-          position={[jointOffset * 4, 0, 0]} 
-          ref={card} 
-          {...segmentProps} 
+        <RigidBody
+          position={[jointOffset * 4, 0, 0]}
+          ref={card}
+          {...segmentProps}
           type={isDraggable && dragged ? 'kinematicPosition' : 'dynamic'}
           {...(isAndroid ? { enabledRotations: [false, false, false] } : {})}
         >

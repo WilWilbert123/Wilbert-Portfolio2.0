@@ -24,6 +24,13 @@ import aimoodImg from './assets/AimoodCraft.png';
 import "./App.css";
 
 function App() {
+  const sectionAnimation = {
+    initial: { opacity: 0, y: 40 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" },
+    viewport: { once: false, amount: 0.1 }
+  };
+
   const techLogos = [
     {
       node: (
@@ -292,7 +299,7 @@ function App() {
       </section>
 
       {/* LogoLoop Section */}
-      <section className="logoloop-section">
+      <motion.section className="logoloop-section" {...sectionAnimation}>
         <div className="logoloop-wrapper">
           <LogoLoop
             logos={techLogos}
@@ -307,10 +314,10 @@ function App() {
             ariaLabel="Technologies I work with"
           />
         </div>
-      </section>
+      </motion.section>
 
       {/* Featured Cards Section */}
-      <section className="featured-cards-section">
+      <motion.section className="featured-cards-section" {...sectionAnimation}>
         <div className="featured-cards-container">
           {/* Left Side: Content/Text */}
           <div className="featured-cards-left">
@@ -450,19 +457,25 @@ function App() {
             </CardSwap>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Projects Section */}
-      <Projects />
+      <motion.div {...sectionAnimation}>
+        <Projects />
+      </motion.div>
 
       {/* Skills Section */}
-      <Skills />
+      <motion.div {...sectionAnimation}>
+        <Skills />
+      </motion.div>
 
       {/* Certifications Section */}
-      <Certifications />
+      <motion.div {...sectionAnimation}>
+        <Certifications />
+      </motion.div>
 
       {/* GitHub Contributions Section */}
-      <section className="github-contributions-section">
+      <motion.section className="github-contributions-section" {...sectionAnimation}>
         <div className="github-contributions-wrapper">
 
           {/* AUTHENTIC GITHUB SECTION TITLE HEADER */}
@@ -474,15 +487,17 @@ function App() {
           <GitHubContributions username="WilWilbert123" />
 
         </div>
-      </section>
+      </motion.section>
 
       {/* Contact Section */}
-      <Contact />
+      <motion.div {...sectionAnimation}>
+        <Contact />
+      </motion.div>
 
       {/* Footer */}
-      <div className="footer">
+      <motion.div className="footer" {...sectionAnimation}>
         © 2026 John Wilbert Gamis — Software Engineer
-      </div>
+      </motion.div>
     </div>
   );
 }
