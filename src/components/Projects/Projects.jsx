@@ -34,6 +34,23 @@ const Projects = () => {
   // Projects strictly organized and updated to reflect your layout requirements
   const allProjects = [
     {
+      title: "STUDENT HELP",
+      type: "Personal Project",
+      subtext: "Built with Next.js & Gemini API",
+      description:
+        "An AI-powered learning app where users can capture and upload images for analysis. It includes a knowledge-testing questionnaire, private browser-based storage, and a history function to recall past analyses.",
+      icon: "fas fa-robot",
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "Gemini API",
+        "Vercel",
+        "Browser Storage"
+      ],
+      color: "#ec4899",
+      link: "https://student-help-ecru.vercel.app/"
+    },
+    {
       title: "AI MOODCRAFT",
       type: "Personal Project",
       subtext: "Built with Vite & Gemini AI",
@@ -405,16 +422,32 @@ const Projects = () => {
             </div>
 
             <div className="project-links-premium">
-              <span
-                className="project-link-premium"
-                style={{ "--accent-color": project.color }}
-              >
-                View System details{" "}
-                <i
-                  className="fas fa-arrow-right"
-                  style={{ fontSize: "0.75rem", marginLeft: "4px" }}
-                ></i>
-              </span>
+              {project.link ? (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link-premium"
+                  style={{ "--accent-color": project.color, textDecoration: "none", display: "inline-block" }}
+                >
+                  View System details{" "}
+                  <i
+                    className="fas fa-arrow-right"
+                    style={{ fontSize: "0.75rem", marginLeft: "4px" }}
+                  ></i>
+                </a>
+              ) : (
+                <span
+                  className="project-link-premium"
+                  style={{ "--accent-color": project.color }}
+                >
+                  View System details{" "}
+                  <i
+                    className="fas fa-arrow-right"
+                    style={{ fontSize: "0.75rem", marginLeft: "4px" }}
+                  ></i>
+                </span>
+              )}
             </div>
           </div>
         </BorderGlow>
