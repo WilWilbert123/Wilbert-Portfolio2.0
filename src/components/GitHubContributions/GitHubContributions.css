@@ -127,4 +127,13 @@
     justify-content: center;
     margin-top: 0;
   }
+  .github-graph-section {
+    flex: none;
+    width: 100%;
+    max-width: 100vw;
+  }
+  .github-graph-card {
+    padding: 12px;
+    overflow-x: auto;
+  }
 }
