@@ -470,7 +470,7 @@ function App() {
             <h2 className="github-main-title">GitHub Activity</h2>
           </div>
 
-          {/* The Calendar component containing the layout and internal data */}
+
           <GitHubContributions username="WilWilbert123" />
 
         </div>
